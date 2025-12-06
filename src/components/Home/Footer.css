@@ -1,0 +1,150 @@
+/* Footer Section */
+.footer-section {
+  background-color: #3e5c78;
+  color: #ffffff;
+}
+
+.footer-logo {
+  width: 160px;
+}
+
+.footer-links a,
+.footer-contact li {
+  color: #e6e6e6;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-contact span {
+  font-size: 18px;
+}
+
+.footer-bottom {
+  background-color: #0d1a2b;
+  color: #cfd6df;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-contact li {
+    justify-content: center;
+  }
+
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+
+  .footer-links a {
+    display: block;
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-contact li {
+    font-size: 13px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+  }
+}
+
+.footer-h{
+    font-family: "Nunito", sans-serif;
+}
+.footer-section ul li{
+      font-family: "Nunito", sans-serif;
+      font-size: 13px;
+      line-height: 30px;
+      display: flex;
+      align-items: center;
+      /* justify-content: center; */
+}
+
+@media screen and (max-width:650px) {
+  .footer-section ul li{
+      font-family: "Nunito", sans-serif;
+      font-size: 13px;
+      line-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+.footer-bottom {
+    display: block !important;
+    align-items: center;
+    justify-content: space-around;
+    /* padding: 0px 70px; */
+}
+}
+.footer-mail{
+  text-decoration: underline !important;
+}
+.footer-section ul li span{
+  border: 50%;
+    border: 1px solid #ffff;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+
+}
+.footer-bottom{
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  /* padding: 0px 70px; */
+}
+
+/* Footer bottom */
+.footer-bottom {
+  /* background: #f5f5f5;  */
+}
+
+/* Social icon list */
+.social-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Round icon circle */
+.social-list li {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px !important;
+  color: #fff;
+  transition: 0.3s ease;
+  cursor: pointer;
+    transition: 0.5s;
+
+}
+
+/* Hover effect */
+.social-list li:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #000;
+  transition: 0.5s;
+}
