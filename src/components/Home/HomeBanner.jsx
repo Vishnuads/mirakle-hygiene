@@ -3,9 +3,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Style.css";
-import banner1 from "../../assets/images/slider.png";
-import banner2 from "../../assets/images/slider.png";
-import banner3 from "../../assets/images/slider.png";
+import banner1 from "../../assets/images/carousel1.webp";
+import banner2 from "../../assets/images/carousel1.webp";
+import banner3 from "../../assets/images/carousel1.webp";
 import { Link } from "react-router-dom";
 
 
