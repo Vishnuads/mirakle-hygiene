@@ -18,7 +18,7 @@ const data = [
   {
     title: "Born Care",
     img: user1,
-    name: "Aisha R.",
+    name: "Aisha ",
     text: "My baby’s skin stays soft and protected even during long hours of wearing diapers. The oil absorbs quickly and has reduced rashes completely.",
     bg: "#E8F0F8",
     rating: 5
@@ -26,7 +26,7 @@ const data = [
   {
     title: "Adult Care",
     img: user2,
-    name: "Suresh M.",
+    name: "Suresh M",
     text: "This oil has made life so much more comfortable. I use it before wearing adult diapers and it prevents irritation.",
     bg: "#F5EFE5",
     rating: 5
@@ -34,7 +34,7 @@ const data = [
   {
     title: "He Care",
     img: user3,
-    name: "Aravind P.",
+    name: "Aravind",
     text: "I was worried about sensitivity, but this oil worked surprisingly well. It completely stops friction and discomfort.",
     bg: "#E8F0F8",
     rating: 5
@@ -42,7 +42,7 @@ const data = [
   {
     title: "She Care",
     img: user4,
-    name: "Lakshmi R.",
+    name: "Lakshmi R",
     text: "Gentle and effective! It prevents irritation and keeps my skin moisturized during long office hours.",
     bg: "#FBE9EF",
     rating: 5
@@ -50,7 +50,7 @@ const data = [
   {
     title: "She Care",
     img: user4,
-    name: "Lakshmi R.",
+    name: "Revathi ",
     text: "Gentle and effective! It prevents irritation and keeps my skin moisturized during long office hours.",
     bg: "#F5EFE5",
     rating: 5
