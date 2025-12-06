@@ -76,7 +76,6 @@ function NavBar() {
             <div className="hidden lg:flex items-center space-x-8">
               
                 <NavLink
-                  
                   to="/"
                   className={({ isActive }) =>
                     isActive
@@ -225,7 +224,6 @@ function NavBar() {
             {menus.map((menu, id) => (
               <a
                 key={id}
-                // href={menu.link}
                 onClick={closeMobileMenu}
                 className="block text-black text-decoration-none hover:text-green-100 hover:bg-green-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200"
               >
@@ -235,13 +233,13 @@ function NavBar() {
 
             {/* Mobile Bottom Icons */}
             <div className="flex items-center justify-around pt-4 border-t border-black">
-              <Link  >
+              <Link to="/wishlist" >
                 <button className="text-black hover:text-green-100 transition-colors flex flex-col items-center">
                   <img src={Heart1} alt="heart" className="w-6 h-6" />
                   <span className="text-xs mt-1">Wishlist</span>
                 </button>
               </Link>
-              <Link>
+              <Link >
                 <button className=" flex flex-col items-center">
                   <FaWhatsapp className="w-6 h-6 text-black" />
                   <span className="text-xs mt-1">Whatsapp</span>
