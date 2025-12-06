@@ -57,12 +57,12 @@ export default function FavouriteProduct() {
           </div>
           :
           <div className='min-h-[60vh] flex  justify-center items-center  '>
-            <div className='text-center md:flex  items-center gap-5'>
+            <div className='text-center '>
               <p className='text-xl text-gray-500  py-6 '>Your Wishlist is Empty</p>
-              <div className='h-10 w-[1px] bg-black/50 hidden md:block'></div>
+              {/* <div className='h-10 w-[1px] bg-black/50 hidden md:block'></div>
               <Link to="/products">
                 <p className='flex items-center gap-3 underline text-xl font-bold text-black rounded-3'>Countinue Shoping <LucideSquareArrowOutUpRight /> </p>
-              </Link>
+              </Link> */}
             </div>
           </div>
         }
