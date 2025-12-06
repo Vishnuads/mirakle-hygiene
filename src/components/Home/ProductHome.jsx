@@ -70,9 +70,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Style.css";
 import { CartContext } from "@/context/CartContext";
 import product1 from "../../assets/images/product-1.png"
-import product2 from "../../assets/images/product-1.png"
-import product3 from "../../assets/images/product-1.png"
-import product4 from "../../assets/images/product-1.png"
+import product2 from "../../assets/images/product-2.png"
+import product3 from "../../assets/images/product-3.png"
+import product4 from "../../assets/images/product-4.png"
 import { Link } from "react-router-dom";
 import { Heart } from "phosphor-react";
 
@@ -97,7 +97,7 @@ export default function ProductHome() {
        price: 650,
        oldPrice: 999,
        rating: 3.5,
-       img: product2,
+       img: product4,
        color: "#F5EEE5",
        btn: "#b59a78"
      },
@@ -119,7 +119,7 @@ export default function ProductHome() {
        price: 550,
        oldPrice: 999,
        rating: 3.5,
-       img: product4,
+       img: product2,
        color: "#FAECF0",
        btn: "#df87a8"
      },

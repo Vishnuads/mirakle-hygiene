@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Home/Style.css";
 import product1 from "../../assets/images/product-1.png"
-import product2 from "../../assets/images/product-1.png"
-import product3 from "../../assets/images/product-1.png"
-import product4 from "../../assets/images/product-1.png"
+import product2 from "../../assets/images/product-2.png"
+import product3 from "../../assets/images/product-3.png"
+import product4 from "../../assets/images/product-4.png"
 import { Link } from "react-router-dom";
 import { CartContext } from "@/context/CartContext";
 import {
@@ -43,7 +43,7 @@ export default function RelatedProducts() {
       price: 695,
       oldPrice: 999,
       rating: 3.5,
-      img: product2,
+      img: product4,
       color: "#F5EEE5",
       btn: "#b59a78"
     },
@@ -65,7 +65,7 @@ export default function RelatedProducts() {
       price: 695,
       oldPrice: 999,
       rating: 3.5,
-      img: product4,
+      img: product2,
       color: "#FAECF0",
       btn: "#df87a8"
     },
@@ -76,7 +76,7 @@ export default function RelatedProducts() {
       price: 695,
       oldPrice: 999,
       rating: 3.5,
-      img: product4,
+      img: product2,
       color: "#FAECF0",
       btn: "#df87a8"
     }

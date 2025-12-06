@@ -27,10 +27,10 @@ function NavBar() {
     { name: "Contact Us", link: "/contact" },
   ];
   const options = [
-    { label: 'BornCare', value:'/products/name' },
-    { label: 'HeCare', value: '/products/name' },
-    { label: 'SheCare', value: '/products/name' },
-    { label: 'GrannyCare', value: '/products/name' },
+    { label: 'Born care', value:'/products/name' },
+    { label: 'He care', value: '/products/name' },
+    { label: 'She care', value: '/products/name' },
+    { label: 'Granny care', value: '/products/name' },
   ];
 
   const handleOptionSelect = (option) => {
