@@ -19,37 +19,19 @@ function NavBar() {
   const location = useLocation();
   const isActive = location.pathname === "/wishlist";
 
-
-  const menus = [
-    { name: "Home", link: "/" },
-    { name: "Prodcuts", link: "/products" },
-    // { name: "About Us", link: "/about" },
-    { name: "Contact Us", link: "/contact" },
-  ];
   const options = [
-    { label: 'Born care', value:'/products/name' },
-    { label: 'He care', value: '/products/name' },
-    { label: 'She care', value: '/products/name' },
-    { label: 'Granny care', value: '/products/name' },
+    { label: 'Born care', value: '/products/born-care' },
+    { label: 'He care', value: '/products/he-care' },
+    { label: 'She care', value: '/products/she-care' },
+    { label: 'Granny care', value: '/products/granny-care' },
   ];
 
   const handleOptionSelect = (option) => {
     // console.log('Selected:', option);
   };
 
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log("Searching for:", searchQuery);
   };
 
   const [showLogin, setShowLogin] = useState(false);
@@ -74,39 +56,38 @@ function NavBar() {
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-8">
-              
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold" + " "
-                      : "text-white font-medium"
-                  }
-                  style={({ isActive }) =>
-                    isActive ? { color: "#C48C4B" } : {}
-                  }
-                >
-                  <p>Home</p>
-                </NavLink>
-             
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold" + " "
+                    : "text-white font-medium"
+                }
+                style={({ isActive }) =>
+                  isActive ? { color: "#C48C4B" } : {}
+                }
+              >
+                <p>Home</p>
+              </NavLink>
+
               <Dropdown
                 options={options}
                 onSelect={handleOptionSelect}
-               placeholder="Products"
+                placeholder="Products"
               />
               <NavLink
-                  to="/contact"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-bold" + " "
-                      : "text-white font-medium"
-                  }
-                  style={({ isActive }) =>
-                    isActive ? { color: "#C48C4B" } : {}
-                  }
-                >
-                  <p>Contact</p>
-                </NavLink>
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold" + " "
+                    : "text-white font-medium"
+                }
+                style={({ isActive }) =>
+                  isActive ? { color: "#C48C4B" } : {}
+                }
+              >
+                <p>Contact</p>
+              </NavLink>
             </div>
 
             {/* Desktop Search & Icons */}
@@ -157,7 +138,7 @@ function NavBar() {
 
             {/* Mobile Icons & Menu Button */}
             <div className="flex md:hidden items-center gap-3">
-              <Link >
+              <Link to="/cart" >
                 <button className="text-white p-2 border border-gray-300 rounded-full hover:border-green-400  transition-colors flex items-center justify-center" style={{ borderRadius: "50%" }}>
                   <MdOutlineShoppingCart className="w-4 h-4 text-white" />
                   {cartItems.length > 0 &&
@@ -196,59 +177,65 @@ function NavBar() {
 
         {/* Mobile Menu Dropdown */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "max-h-96" : "max-h-0"
+          className={`lg:hidden overflow-hidden transition-[height] bg-white duration-300 ease-in-out ${isMobileMenuOpen ? "max-h-1/2" : "max-h-0"
             }`}
         >
-          <div className="px-4 pt-2 pb-4 space-y-3 bg-white">
-            {/* Mobile Search */}
-            {/* <div className="mb-4">
-              <div className="flex items-center bg-gray-200 rounded-full overflow-hidden">
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && handleSearch(e)}
-                  className="w-full h-10 px-4 text-sm text-gray-500 focus:outline-none"
-                  placeholder="Search for products..."
-                />
-                <button
-                  onClick={handleSearch}
-                  className="px-4 h-10 hover:bg-gray-100 transition-colors"
+          <div className="px-4 pt-2 pb-4 space-y-4  ">
+            <div>
+             <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "font-bold" : "text-black font-medium"
+              }
+              style={({ isActive }) => (isActive ? { color: "#C48C4B" } : {})}
+            >
+              <p>Home</p>
+            </NavLink></div>
+
+            {options.map((option, idx) => (
+              <div key={idx}>
+                <NavLink
+                  to={option.value}
+                  className={({ isActive }) =>
+                    isActive ? "font-bold" : "text-black font-medium mb-5"
+                  }
+                  style={({ isActive }) => (isActive ? { color: "#C48C4B" } : {})}
                 >
-                  <img src={Search} alt="search" className="w-5 h-5 text-gray-500" />
-                </button>
-              </div>
-            </div> */}
-
-            {/* Mobile Menu Links */}
-            {menus.map((menu, id) => (
-              <a
-                key={id}
-                onClick={closeMobileMenu}
-                className="block text-black text-decoration-none hover:text-green-100 hover:bg-green-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200"
-              >
-                <p className="mb-0">{menu.name}</p>
-              </a>
+                  <p>{option.label}</p>
+                </NavLink>
+                </div>
             ))}
+           <div>
+           <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "font-bold" : "text-black font-medium"
+              }
+              style={({ isActive }) => (isActive ? { color: "#C48C4B" } : {})}
+            >
+              <p>Contact</p>
+            </NavLink>
+            </div>
 
-            {/* Mobile Bottom Icons */}
+            {/* Bottom Icons */}
             <div className="flex items-center justify-around pt-4 border-t border-black">
-              <Link to="/wishlist" >
-                <button className="text-black hover:text-green-100 transition-colors flex flex-col items-center">
+              <Link to="/wishlist">
+                <button className="flex flex-col items-center">
                   <img src={Heart1} alt="heart" className="w-6 h-6" />
                   <span className="text-xs mt-1">Wishlist</span>
                 </button>
               </Link>
-              <Link >
-                <button className=" flex flex-col items-center">
+
+              <Link>
+                <button className="flex flex-col items-center">
                   <FaWhatsapp className="w-6 h-6 text-black" />
                   <span className="text-xs mt-1">Whatsapp</span>
                 </button>
               </Link>
-
             </div>
           </div>
         </div>
+
       </nav>
 
       {showLogin &&

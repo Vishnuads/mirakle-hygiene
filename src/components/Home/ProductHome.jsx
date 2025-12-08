@@ -73,58 +73,64 @@ import product1 from "../../assets/images/product-1.png"
 import product2 from "../../assets/images/product-2.png"
 import product3 from "../../assets/images/product-3.png"
 import product4 from "../../assets/images/product-4.png"
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Heart } from "phosphor-react";
 
 
 export default function ProductHome() {
- const products = [
-     {
-       id: 1,
-       title: "Born Care",
-       desc: "Pre Diaper Oils Triple Comfort Action",
-       price: 695,
-       oldPrice: 999,
-       rating: 3.5,
-       img: product1,
-       color: "#E9EEF3",
-       btn: "#7da6c8"
-     },
-     {
-       id: 2,
-       title: "Granny Care",
-       desc: "Pre Diaper Oils Triple Comfort Action",
-       price: 650,
-       oldPrice: 999,
-       rating: 3.5,
-       img: product4,
-       color: "#F5EEE5",
-       btn: "#b59a78"
-     },
-     {
-       id: 3,
-       title: "He Care",
-       desc: "Pre Diaper Oils Triple Comfort Action",
-       price: 600,
-       oldPrice: 999,
-       rating: 3.5,
-       img: product3,
-       color: "#DFE6EB",
-       btn: "#7da6c8"
-     },
-     {
-       id: 4,
-       title: "She Care",
-       desc: "Pre Diaper Oils Triple Comfort Action",
-       price: 550,
-       oldPrice: 999,
-       rating: 3.5,
-       img: product2,
-       color: "#FAECF0",
-       btn: "#df87a8"
-     },
-  
-   ];
+
+  const products = [
+    {
+      id: 1,
+      title: "Born Care",
+      desc: "Pre Diaper Oils Triple Comfort Action",
+      price: 695,
+      oldPrice: 999,
+      rating: 3.5,
+      img: product1,
+      color: "#E9EEF3",
+      btn: "#7da6c8",
+      url: "born-care"
+    },
+    {
+      id: 2,
+      title: "Granny Care",
+      desc: "Pre Diaper Oils Triple Comfort Action",
+      price: 695,
+      oldPrice: 999,
+      rating: 3.5,
+      img: product4,
+      color: "#F5EEE5",
+      btn: "#b59a78",
+      url: "granny-care"
+    },
+    {
+      id: 3,
+      title: "He Care",
+      desc: "Pre Diaper Oils Triple Comfort Action",
+      price: 695,
+      oldPrice: 999,
+      rating: 3.5,
+      img: product3,
+      color: "#DFE6EB",
+      btn: "#7da6c8",
+      url: "he-care"
+    },
+    {
+      id: 4,
+      title: "She Care",
+      desc: "Pre Diaper Oils Triple Comfort Action",
+      price: 695,
+      oldPrice: 999,
+      rating: 3.5,
+      img: product2,
+      color: "#FAECF0",
+      btn: "#df87a8",
+      url: "she-care"
+    }
+  ];
+
+
   const { isFavorite, addToCart, toggleFav } = useContext(CartContext);
   return (
     <div className="products-section py-5">
@@ -138,11 +144,11 @@ export default function ProductHome() {
             <div className="col-12 col-md-6 col-lg-3" key={p.id}>
 
               <div className="product-card " style={{ backgroundColor: p.color }}>
-                <Link to={'/products/name'}>
+                <Link to={`/products/${p.url}`}>
                   <img src={p.img} alt={p.title} className="product-img mb-3" />
                 </Link>
                 <div className="product-cart">
-                  <Link to={'/products/name'}>
+                  <Link to={`/products/${p.url}`}>
                     <div className="product-title-new" >
                       <h2 className="product-name" style={{ color: p.btn }}>{p.title}</h2>
                       <div className="rating-badge">⭐ {p.rating}</div>

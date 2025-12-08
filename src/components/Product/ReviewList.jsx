@@ -39,7 +39,7 @@ const ReviewList = () => {
                     </div>
                     <div className="flex items-center gap-2 mb-2 mt-2">
                         {[1, 2, 3, 4, 5].map((id) => (
-                            <Star key={id} size={18} className="text-yellow-500 " />
+                            <Star key={id} size={18} className="text-yellow-400 fill-amber-400" />
                         ))}
                         <p className='mb-0'>5.0</p>
                     </div>

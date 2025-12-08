@@ -5,7 +5,7 @@ import product1 from "../../assets/images/product-1.png"
 import product2 from "../../assets/images/product-2.png"
 import product3 from "../../assets/images/product-3.png"
 import product4 from "../../assets/images/product-4.png"
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { CartContext } from "@/context/CartContext";
 import {
   Swiper,
@@ -20,7 +20,7 @@ import { Heart } from "phosphor-react";
 export default function RelatedProducts() {
 
   const { isFavorite, addToCart, toggleFav } = useContext(CartContext);
-  const handleFav =(p, id)=>{
+  const handleFav = (p, id) => {
     isFavorite(id);
     toggleFav(p, id);
   }
@@ -34,7 +34,8 @@ export default function RelatedProducts() {
       rating: 3.5,
       img: product1,
       color: "#E9EEF3",
-      btn: "#7da6c8"
+      btn: "#7da6c8",
+      url: "born-care"
     },
     {
       id: 2,
@@ -45,7 +46,8 @@ export default function RelatedProducts() {
       rating: 3.5,
       img: product4,
       color: "#F5EEE5",
-      btn: "#b59a78"
+      btn: "#b59a78",
+      url: "granny-care"
     },
     {
       id: 3,
@@ -56,7 +58,8 @@ export default function RelatedProducts() {
       rating: 3.5,
       img: product3,
       color: "#DFE6EB",
-      btn: "#7da6c8"
+      btn: "#7da6c8",
+      url: "he-care"
     },
     {
       id: 4,
@@ -67,18 +70,8 @@ export default function RelatedProducts() {
       rating: 3.5,
       img: product2,
       color: "#FAECF0",
-      btn: "#df87a8"
-    },
-    {
-      id: 5,
-      title: "She Care",
-      desc: "Pre Diaper Oils Triple Comfort Action",
-      price: 695,
-      oldPrice: 999,
-      rating: 3.5,
-      img: product2,
-      color: "#FAECF0",
-      btn: "#df87a8"
+      btn: "#df87a8",
+      url: "she-care"
     }
   ];
 
@@ -103,35 +96,39 @@ export default function RelatedProducts() {
             {products.map((p) => (
               <SwiperSlide key={p.id}>
                 <div className="" key={p.id}>
-                  <Link to={'/products/name'}>
-                    <div className="product-card " style={{ backgroundColor: p.color }}>
-                      <img src={p.img} alt={p.title} className="product-img mb-3" />
 
-                      <div className="product-cart">
+                  <div className="product-card " style={{ backgroundColor: p.color }}>
+                    <Link to={`/products/${p.url}`}>
+                      <img src={p.img} alt={p.title} className="product-img mb-3" />
+                    </Link>
+
+                    <div className="product-cart">
+                      <Link to={`/products/${p.url}`}>
                         <div className="product-title-new" >
                           <h2 className="product-name" style={{ color: p.btn }}>{p.title}</h2>
                           <div className="rating-badge">⭐ {p.rating}</div>
                         </div>
+                      </Link>
 
-                        <p className="product-desc" style={{ color: p.btn }}>{p.desc}</p>
-                        <div className="price-section my-2">
-                          <span className="price">₹{p.price}.00</span>
-                          <span className="old-price ms-2">₹{p.oldPrice}.00</span>
-                        </div>
+                      <p className="product-desc" style={{ color: p.btn }}>{p.desc}</p>
+                      <div className="price-section my-2">
+                        <span className="price">₹{p.price}.00</span>
+                        <span className="old-price ms-2">₹{p.oldPrice}.00</span>
+                      </div>
 
-                        <div className="addtocart-new">
-                          <button className="btn addtocartbtn text-white add-btn" style={{ backgroundColor: p.btn }} onClick={() => addToCart(p)}>
-                            Add to Cart
-                          </button>
+                      <div className="addtocart-new">
+                        <button className="btn addtocartbtn text-white add-btn" style={{ backgroundColor: p.btn }} onClick={() => addToCart(p)}>
+                          Add to Cart
+                        </button>
 
-                          <button onClick={() => handleFav(p, p.id)} className="wishlist-btn" style={{ border: `2px solid ${p.btn}`, color: p.btn }}>
-                            {isFavorite(p.id) ? <Heart color="#DF2E2E" weight="fill" /> : <Heart /> }
-                           
-                          </button>
-                        </div>
+                        <button onClick={() => handleFav(p, p.id)} className="wishlist-btn" style={{ border: `2px solid ${p.btn}`, color: p.btn }}>
+                          {isFavorite(p.id) ? <Heart color="#DF2E2E" weight="fill" /> : <Heart />}
+
+                        </button>
                       </div>
                     </div>
-                  </Link>
+                  </div>
+
                 </div>
               </SwiperSlide>
 
@@ -139,6 +136,6 @@ export default function RelatedProducts() {
           </Swiper>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

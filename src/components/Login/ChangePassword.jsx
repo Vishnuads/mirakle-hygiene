@@ -14,7 +14,7 @@ const ChangePassword = () => {
         <>
             <NavBar />
             <SectionBanner title="Set Password" />
-            <section className='max-w-6xl mx-auto flex justify-center items-center py-10'>
+            <section className='max-w-6xl mx-auto flex justify-center items-center py-10 min-h-screen'>
                 <div className='p-3 w-full md:w-lg '>
                    {/* <h1>Change </h1> */}
                     <form >
@@ -79,7 +79,7 @@ const ChangePassword = () => {
                         </div>
                         <button
                             type="submit"
-                            className="bg-[#56750A] text-white px-4 py-2 my-3 rounded w-full"
+                            className="bg-[#3B5875] text-white px-4 py-2 my-3 rounded w-full"
                         >
                             <p> Change Password</p>
                         </button>

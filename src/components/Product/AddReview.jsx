@@ -52,7 +52,7 @@ const AddReview = () => {
                     <div className="flex justify-end">
                         <button
                             type="submit"
-                            className="bg-[#56750A] rounded-3 btn-buy transition text-white px-6 py-2 rounded-md font-medium shadow"
+                            className="bg-[#3B5875] rounded-3 btn-buy transition text-white px-6 py-2 rounded-md font-medium shadow"
                         >
                             Share Review
                         </button>

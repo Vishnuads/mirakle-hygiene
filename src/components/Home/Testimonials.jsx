@@ -82,7 +82,7 @@ export default function Testimonials() {
         {data.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="p-2">
-              <div className="test-card" style={{ background: item.bg }}>
+              <div className="test-card overflow-hidden" style={{ background: item.bg }}>
                 <div className="quote-bg">
                   <BsQuote />
                 </div>

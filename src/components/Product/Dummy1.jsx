@@ -1,31 +1,27 @@
 import React, { useState, useContext } from 'react';
-import { Heart, Plus, Minus } from 'lucide-react';
-import Product from '../../assets/images/product-desc2.png'
+import { Plus, Minus } from 'lucide-react';
 import Product2 from '../../assets/images/product-desc1.png'
 import Product3 from '../../assets/images/product-desc1.png'
 import Product4 from '../../assets/images/product-desc1.png'
 import { IoMdStar } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { CartContext } from '@/context/CartContext';
+import { Heart } from 'phosphor-react';
+import { Link } from 'react-router-dom';
 
 
-export default function Dummy() {
+export default function Dummy({product, accent, img}) {
 
     const { addToCart } = useContext(CartContext);
-
     const [selectedWeight, setSelectedWeight] = useState('100 ml');
     const [quantity, setQuantity] = useState(1);
     const [selectedImage, setSelectedImage] = useState(0);
 
     const images = [
-        Product,
+        img,
         Product2,
         Product3,
-        Product4,
-        Product2,
-        // { name: "Product 1", url: Product },
-        // { name: "Product 2", url: Product },
-        // { name: "Product 3", url: Product },
+        Product4
     ];
 
     const qty = 2;
@@ -38,24 +34,23 @@ export default function Dummy() {
     };
 
     const priceData = {
-        "100 ml": { price: 170, mrp: 999 },
-        "200 ml": { price: 299, mrp: 1299 }
+        "100 ml": { price: 695, mrp: 999 },
+        // "200 ml": { price: 499, mrp: 1299 }
     };
-
 
     return (
         <div className=" p-4 md:p-6 mt-5 pt-5 ">
-            <div className="max-w-6xl mx-auto  rounded-2xl  overflow-hidden">
+            <div className="max-w-6xl mx-auto    overflow-hidden">
                 <div className="grid md:grid-cols-2 gap-12  md:p-10">
                     {/* Left Side - Images */}
                     <div className="space-y-4">
                         <div>
-                            <p className='product-dec-tag'>Home / Born Care</p>
+                            <p className='product-dec-tag'><Link to="/"> Home  </Link> <span>/ {product.name}</span></p>
                         </div>
                         <div className="overflow-hidden">
                             <img
                                 src={images[selectedImage]}
-                                alt="Garlic Powder"
+                                alt="Hygiene"
                                 className="md:w-full  md:h-100 product-dec-img  object-cover"
                             />
                         </div>
@@ -71,7 +66,7 @@ export default function Dummy() {
                                 >
                                     <img
                                         src={img}
-                                        alt={`Garlic Powder view ${idx + 1}`}
+                                        alt={`hygiene ${idx + 1}`}
                                         className="w-full h-20 object-cover"
                                     />
                                 </button>
@@ -81,20 +76,11 @@ export default function Dummy() {
 
                     {/* Right Side - Product Details */}
                     <div className="space-y-4 mt-4">
-                        {/* <div className='mt-3'>
-                            <p className="inline-block px-4 py-2  border-2 border-[#56750A] text-[#56750A] rounded-4 font-semibold text-sm ">
-                                Spices & Seasonings
-                            </p>
-                        </div> */}
-                        {/* <div> */}
                         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 product-dec-title">
-                            Born Care
+                            {product.name}
                         </h1>
-                        {/* </div> */}
-                        {/* <div> */}
                         <p className="text-gray-600 mb-3 product-dec-sub-title">
                             Experience soothing, long-lasting comfort with our gentle Pre-Diaper Oil, formulated to protect delicate skin before wearing diapers or pads.                            </p>
-                        {/* </div> */}
                         <div className='product-dec-sub-rating'>
                             <p className='desc-rate'>
                                 <IoMdStar />
@@ -103,9 +89,8 @@ export default function Dummy() {
                         </div>
                         <div>
                             <p className='mb-2'>Net Weight</p>
-
                             <div className="flex gap-3">
-                                {['100 ml', '200 ml'].map((weight) => (
+                                {['100 ml'].map((weight) => (
                                     <button
                                         key={weight}
                                         onClick={() => setSelectedWeight(weight)}
@@ -125,13 +110,8 @@ export default function Dummy() {
                             </div>
                         </div>
 
-                        {/* Quantity Selector */}
-
-
                         <p className='mb-2'>Quantity</p>
-
                         <div className="flex items-center gap-4 product-dec-quantity">
-
                             <div className="border border-gray-200 flex items-center rounded-2 overflow-hidden">
                                 <button
                                     onClick={decreaseQty}
@@ -139,14 +119,12 @@ export default function Dummy() {
                                 >
                                     <Minus className="w-5 h-5 text-gray-600" />
                                 </button>
-
                                 <input
                                     type="text"
                                     value={quantity}
                                     readOnly
                                     className="w-15 h-10 text-center text-xl font-semibold  rounded-lg"
                                 />
-
                                 <button
                                     onClick={increaseQty}
                                     className="w-10 h-10  border-l border-gray-200 flex items-center justify-center hover:bg-gray-100 transition-colors"
@@ -171,22 +149,16 @@ export default function Dummy() {
                                 ₹{priceData[selectedWeight].price.toFixed(2)}
 
                             </p>
-
                             <p className="product-dec-price-discount text-gray-900">
                                 ₹{priceData[selectedWeight].mrp.toFixed(2)}
                             </p>
                         </div>
 
-                        {/* Weight Selection */}
-
-
-
-
                         {/* Action Buttons */}
                         <div className="flex gap-4  justify-baseline">
-                            <button 
-                            // onClick={() => addToCart(p)}
-                            className="flex align-items-center justify-content-center  btn-buy items-center  text-white font-semibold transition-colors">
+                            <button
+                                onClick={() => addToCart(p)}
+                                className={`flex align-items-center justify-content-center  btn-buy items-center  text-white font-semibold transition-colors `} style={{backgroundColor:accent.primary}}>
                                 {(qty > 0) ?
                                     <>
                                         <p className='mb-0 text-xl mr-3'>Add To Cart </ p>
@@ -194,23 +166,17 @@ export default function Dummy() {
                                     </>
                                     : <p className='mb-0 text-xl'>Notify me</p>}
                             </button>
-
-
-                            {/* <button className="w-14 h-14 border-2  border-gray-300 rounded-5 flex items-center justify-center hover:bg-gray-100 transition-colors group">
-                                <Heart className="w-6 h-6 text-gray-600 group-hover:text-red-500 transition-colors" />
-                            </button> */}
                         </div>
                         <div className="flex gap-4   justify-baseline">
-                            <button className="flex align-items-center justify-content-center  btn-buy-wishlist items-center  font-semibold transition-colors">
+                            <button className="flex align-items-center justify-content-center  btn-buy-wishlist items-center  font-semibold transition-colors" style={{border: `1px solid ${accent.primary}`}}>
                                 {(qty > 0) ?
                                     <>
-                                        <p className='mb-0 text-xl mr-3'>Add To Wishlist </ p>
-                                        <p >< Heart /></p>
+                                        <p className='mb-0 text-xl mr-3' style={{color: accent.primary}}>Add To Wishlist </ p>
+                                        <p >< Heart size={26} color={`${accent.primary}`}/></p>
                                     </>
                                     : <p className='mb-0 text-xl'>Notify me</p>}
                             </button>
                         </div>
-
                     </div>
                 </div>
             </div>

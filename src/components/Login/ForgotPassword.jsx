@@ -40,7 +40,7 @@ const ForgotPassword = ({ onClose }) => {
             <Link to="/change">
               <button
                 type="submit"
-                className="bg-[#56750A] text-white px-4 py-2 rounded w-full"
+                className="bg-[#3B5875] text-white px-4 py-2 rounded w-full"
               >
                 <p> Send Link</p>
               </button>

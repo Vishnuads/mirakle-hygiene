@@ -1,64 +1,96 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { CaretDown } from "phosphor-react";
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const Dropdown = ({ options, onSelect, placeholder }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
+const Dropdown = ({ options = [], onSelect, placeholder = "Select" }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef();
 
-    const handleToggle = () => {
-        setIsOpen(!isOpen);
-    };
+  const toggleDropdown = () => setIsOpen((prev) => !prev);
 
-    const handleSelect = (option) => {
-        setSelectedOption(option);
-        onSelect(option);
+  const handleSelect = (option) => {
+    onSelect(option);
+    setIsOpen(false);
+  };
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setIsOpen(false);
+      }
     };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-    return (
-        <div className="relative inline-block text-left">
-            <div>
-                <button
-                    type="button"
-                    className="inline-flex justify-center items-center w-full rounded-md  px-4 py-2  text-sm font-medium text-white"
-                    onClick={handleToggle}
+  // Close dropdown on ESC
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("keydown", handleEsc);
+    return () => document.removeEventListener("keydown", handleEsc);
+  }, []);
+
+  return (
+    <div ref={dropdownRef} className="relative w-full md:w-auto">
+      {/* Trigger Button */}
+      <button
+        type="button"
+        aria-expanded={isOpen}
+        onClick={toggleDropdown}
+        className="
+          flex justify-between items-center 
+          w-full md:w-auto 
+          rounded-md 
+          px-4 py-2  md:text-white
+          text-sm  text-white
+         gap-1 transition
+        "
+      >
+        {placeholder}
+
+        <CaretDown 
+          className={` h-4 w-4 transition-transform ${
+            isOpen ? "rotate-180" : "rotate-0"
+          }`}
+        />
+      </button>
+
+      {/* Dropdown Menu */}
+      {isOpen && (
+        <div
+          className="
+            absolute right-0 mt-2 
+            w-full md:w-56 
+            bg-white shadow-lg rounded-md 
+            ring-1 ring-black ring-opacity-5 
+            animate-fadeIn
+            z-20
+          "
+        >
+          <ul className="py-1 max-h-54 overflow-y-auto px-0 mb-0">
+            {options.map((option, index) => (
+              <li key={index} className="hover:bg-gray-100 hover:text-gray-900 px-3 ">
+                <Link
+                  to={option.value}
+                  onClick={() => handleSelect(option)}
+                  className="
+                    block  py-2 text-sm text-gray-700
+                    
+                    transition
+                  "
                 >
-                    { placeholder}
-                    <svg
-                        className="-mr-1 ml-2 h-5 w-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
-                </button>
-            </div>
-
-            {isOpen && (
-                <div className="origin-top-right absolute -right-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="py-1">
-                        {options.map((option, index) => (
-                            <Link to={option.value}>
-                                <button
-                                    key={index}
-                                    onClick={() => handleSelect(option)}
-                                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                                >
-                                    {option.label}
-                                </button>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            )}
+                  {option.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default Dropdown;

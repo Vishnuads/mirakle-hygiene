@@ -29,11 +29,11 @@ export default function Footer() {
               <ul className="list-unstyled footer-links">
                 <Link to="/">
                 <li>Home</li></Link>
-                <Link to="/product/name">
-                <li>Baby Care</li>
-                <li>Adult Care</li>
-                <li>He Care</li>
-                <li>She Care</li></Link>
+                <Link to="/products/born-care">
+                <li>Baby Care</li></Link>
+            <Link to="/products/granny-care">   <li>Adult Care</li></Link>
+            <Link to="/products/he-care">   <li>He Care</li></Link>
+            <Link to="/products/she-care">   <li>She Care</li></Link>
               </ul>
             </div>
 
@@ -54,9 +54,9 @@ export default function Footer() {
             <div className="col-md-4 mb-4">
               <h6 className="fw-bold mb-3 footer-h">Get in Touch</h6>
               <ul className="list-unstyled footer-contact">
-                <li className="d-flex mb-2">
+                <li className="d-flex align-items-center mb-2">
                   <span className="me-2"><MdLocationPin /></span>
-                  Meenas Health Care NO.2/66, RR Nagar Annex Srinivaspuram Ayyappan Thangal , Chennai - 600056
+                 <p> Meenas Health Care NO.2/66, RR Nagar Annex Srinivaspuram Ayyappan Thangal , Chennai - 600056</p>
                 </li>
                 <li className="d-flex mb-2 footer-mail">
                   <span className="me-2"><IoMdMail /></span>

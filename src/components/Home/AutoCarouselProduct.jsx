@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import product1 from "../../assets/images/carousel4.png";
 import product2 from "../../assets/images/carousel2.png";
 import product3 from "../../assets/images/carousel3.png";
-import product4 from "../../assets/images/carousel4.png";
+import product4 from "../../assets/images/slider1.png";
 
 const products = [
   { img: product1 },

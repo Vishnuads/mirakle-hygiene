@@ -96,7 +96,7 @@ const CartHome = () => {
                                 <div className="bg-white my-3  p-3 rounded-4   w-full">
                                     <div className="flex items-center justify-between mb-1 text-sm">
                                         <p>Subtotal</p>
-                                        <p className='text-gray-400'>1899</p>
+                                        <p className='text-gray-400'>₹ {total}</p>
                                     </div>
                                     <div className="flex items-center justify-between mb-2 text-sm">
                                         <p>Shipping</p>

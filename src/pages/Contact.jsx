@@ -94,7 +94,7 @@ const Contact = () => {
                                         className='bg-gray-100 rounded-3 border px-3 w-full h-24 py-1' />
                                     {errors.message && <p className='text-red-600 text-xs mt-1'>{errors.message}</p>}
                                 </div>
-                                <button type="submit" className='btn-buy text-center py-2 w-full bg-[#56750A] text-white rounded-3 my-2 '><p>Send Message</p> </button>
+                                <button type="submit" className='btn-buy text-center py-2 w-full bg-[#3B5875] text-white rounded-3 my-2 '><p>Send Message</p> </button>
                             </form>
                         </div>
                     </div>

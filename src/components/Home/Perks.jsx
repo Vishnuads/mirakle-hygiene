@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Style.css";
-import perks1 from "../../assets/images/group-1.png"
+import perks1 from "../../assets/images/Group 1.png"
 import perks2 from "../../assets/images/group-2.png"
 import perks3 from "../../assets/images/group-3.png"
 import perks4 from "../../assets/images/group-4.png"
